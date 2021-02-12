@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
 // This is your real test secret API key.
 const stripe = require("stripe")("sk_test_51IJaeQGdR5gcqr0pr7a1GUbMlK6QOp2i51Tt7McLDwAIuAcqsH5lPdif7aUECz6uHLfI9OkYaTVXPGYqFavflVP8007SMEVLCb");
 app.use(express.static("."));
@@ -10,7 +11,7 @@ const calculateOrderAmount = items => {
   // people from directly manipulating the amount on the client
   return 1400;
 };
-app.get("/stripe.json", async (req, res) => {
+app.get("/stripe.json", cors(), async (req, res) => {
   const { items } = req.body;
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.checkout.sessions.create(
