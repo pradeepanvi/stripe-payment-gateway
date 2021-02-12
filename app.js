@@ -10,7 +10,7 @@ const calculateOrderAmount = items => {
   // people from directly manipulating the amount on the client
   return 1400;
 };
-app.get("/", async (req, res) => {
+app.get("/stripe.json", async (req, res) => {
   const { items } = req.body;
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.checkout.sessions.create(
