@@ -24,7 +24,7 @@ app.get("/stripe.json", cors(), async (req, res) => {
         name: 'T-shirt',
         description: 'Comfortable cotton t-shirt',
         amount: 1500,
-        currency: 'usd',
+        currency: 'inr',
         quantity: 2,
       },
     ],
