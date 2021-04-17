@@ -11,8 +11,9 @@ const calculateOrderAmount = items => {
   // people from directly manipulating the amount on the client
   return 1400;
 };
-app.get("/stripe.json", cors(), async (req, res) => {
-  const { items } = req.body;
+app.get("/stripe", cors(), async (req, res) => {
+  // const { items } = req.body;
+  console.log(req.query.amount)
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.checkout.sessions.create(
   {
@@ -21,9 +22,9 @@ app.get("/stripe.json", cors(), async (req, res) => {
     payment_method_types: ['card'],
     line_items: [
       {
-        name: 'T-shirt',
+        name: 'cards',
         description: 'Comfortable cotton t-shirt',
-        amount: 1500,
+        amount: req.query.amount,
         currency: 'inr',
         quantity: 2,
       },
