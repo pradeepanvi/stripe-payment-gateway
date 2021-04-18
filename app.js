@@ -17,8 +17,8 @@ app.get("/stripe", cors(), async (req, res) => {
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.checkout.sessions.create(
   {
-    success_url: 'http://localhost:4200/success',
-    cancel_url: 'http://localhost:4200/cancel',
+    success_url: 'http://beta.identitycards.co.in/#/success',
+    cancel_url: 'http://beta.identitycards.co.in/#/cancel',
     payment_method_types: ['card'],
     line_items: [
       {
