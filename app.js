@@ -24,9 +24,9 @@ app.get("/stripe", cors(), async (req, res) => {
       {
         name: 'cards',
         description: 'Comfortable cotton t-shirt',
-        amount: req.query.amount,
+        amount: req.query.amount * 1000,
         currency: 'inr',
-        quantity: 2,
+        quantity: 1,
       },
     ],
   },
