@@ -23,8 +23,7 @@ app.get("/stripe", cors(), async (req, res) => {
     line_items: [
       {
         name: 'cards',
-        description: 'Comfortable cotton t-shirt',
-        amount: req.query.amount * 1000,
+        amount: req.query.amount * 100,
         currency: 'inr',
         quantity: 1,
       },
